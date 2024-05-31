@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(248, 210, 223);
+    justify-content: center;
+    padding-left: 100px;
+    gap: 200px;
+   
+}
+.new{
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+    font-size: 25px;
+    
+}
+.para{
+    margin-top: -50px;
+}
+.sub-body1 p{
+    font-weight: bold;
+}
+.Latest_Collection{
+    display: flex;
+    background-color:rgb(107, 107, 227);   
+    gap: 10px;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.Latest_Collection img{
+    cursor: pointer;
+    margin-top: 2px;
+}
+.Latest_Collection img:active{
+    background-color: red;
+}
+.collection{
+   font-weight: bold;
+}
+.hand{
+    display: flex;
+}
+.hand img{
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+}
+.sub-body2 img{
+    height: 70%;
+}
+.sub-body1{
+    margin-top: 10%;
+
+}

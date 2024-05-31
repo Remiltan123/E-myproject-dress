@@ -1,0 +1,23 @@
+.discription-conatiner{
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-top: 60px;
+    margin-right: 100px;
+}
+.discription{
+    display: flex;
+   
+}
+.discription div{
+    border: 1px solid #d0d0d0;
+    padding: 15px;
+}
+.discription-paar{
+    border: 1px solid #d0d0d0;
+    padding: 20px;
+}
+.discription-box {
+    color: #555;
+    font-weight: 800;
+}

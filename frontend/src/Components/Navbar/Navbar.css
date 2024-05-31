@@ -1,0 +1,68 @@
+.navber-header{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 100%;
+}
+.navber-header p{
+    font-weight: 500;
+}
+.shoper{
+    display: flex;
+    align-items: center;
+}
+.mid-nav ul{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    align-items: center;
+    padding-top: 10px;
+}
+.mid-nav ul li{
+    font-size: 22px;
+    color: rgb(113, 47, 255);
+    font-weight: bold;
+}
+.mid-nav hr{
+ border:none ;
+ width: 80%;
+ height: 3px;
+ border-radius: 10px;
+ background-color: red;
+}
+.end-anv{
+    display: flex;
+    justify-content: space-around;
+    gap:10px;
+}
+.end-anv button{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 40px;
+    border: none;
+    color: black;
+    font-weight: bold;
+    background-color: aquamarine;
+    cursor: pointer;
+}
+.end-anv button:active{
+    background-color: yellow;
+}
+.image{
+    width: 30px;
+    height: 30px;
+}
+.image,.counter{
+    margin-top: 30px;
+}
+.counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: -12px;
+    margin-top: 23px;
+}

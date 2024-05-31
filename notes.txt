@@ -1,0 +1,32 @@
+
+******image strore engine**********
+
+const storage = multer.diskStorage({
+    destination:'./upload/images',
+    filename:(req,file,cb)=>{
+        return cb(null,`${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload = multer({storage:storage})
+
+// crating upload endpoint for images
+app.use('/images',express.static('upload/images'))
+app.post("/upload",upload.single('product'),(req,res)=>{
+    res.json({
+        success:1,
+        image_url: `http://localhost:${port}/images/${req.file.filename}`
+    })
+})
+
+******upload image click the image then upload option availble****
+
+	<div className='AddProduct-itemfiled'>
+            <label htmlFor="file-input">
+                <img src={upload_image} alt="" className='upload_image' />
+            </label>
+            <input type="file" name='image' id='file-input' hidden /> 
+        </div>
+
+
+//https://www.youtube.com/watch?v=BM6VWXdxagk - important refer

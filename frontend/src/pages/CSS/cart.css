@@ -1,0 +1,78 @@
+.cart-container{
+   margin: 100px 170px;
+}
+.cart-items,.item-display{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr ;
+    align-items: center;
+    gap: 80px;
+    color: #454545;
+    font-size: 18px;
+    font-weight: 600;
+    border:1px solid rgba(20, 20, 20, 0.333);
+    
+}
+.item-display{
+ font-size: 16px;
+ font-weight: 500;
+ border:1px solid rgba(143, 142, 142, 0.333);
+}
+.cart-Total-container{
+    display: flex;
+    margin: 50px 170px;
+    width: 65%;
+    justify-content: space-between;
+    
+}
+.Subtotals,.shippingfee,.total{
+    display: flex;
+    justify-content: space-between;
+    gap:280px
+}
+.cart-total-left hr{
+    margin-top: -5px;
+}
+.total p{
+    color: #454545;
+    font-weight: 800;
+}
+.free,.price{
+    color: #454545;
+    font-weight: 400;
+}
+.cart-total-left button{
+    background-color:greenyellow;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.cart-total-right p{
+    color: #555;
+}
+.promobox {
+    margin: 10px 0px;
+
+}
+.promobox input,button{
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+}
+.promobox button{
+    width: 100px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 7px;
+}
+
+
+.item-display-image{
+    width: 100px;
+    height: 100px;
+}
+.item-display{
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.5fr 2fr 1fr 1fr ;
+    gap: 60px;
+}
