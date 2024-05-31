@@ -1,0 +1,17 @@
+.Sidebar{
+    display: flex;
+    flex-direction: column;
+    padding-top:30px ;
+    gap:20px;
+    width: 100%;
+    max-width: 250px;
+    background-color:white ;
+}
+.sidebar-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 20px;
+    padding: 5px 10px;
+    background-color: #f5c9c9;
+}
