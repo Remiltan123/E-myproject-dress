@@ -132,6 +132,7 @@ app.get("/allproduct", async (req, res) => {
 });
 
 
+
 //Creating the Schema for user
 const Users = mongoose.model("Users",{
   name:{
@@ -201,6 +202,33 @@ app.post('/Login', async(req,res)=>{
   }else{
     res.json({success:false,errors:"Wrong email id"})
   }
+})
+
+// new collection
+app.get("/NewCollection", async(req,res)=>{
+  try{
+    const listproducts = await Products.find({});
+    if(listproducts.length == 0){
+      res.json({
+        success:false,
+        meassage:"No any products"
+      })
+    }else{
+      const newcollections = listproducts.slice(-8);
+      res.json({
+        success:true,
+        Data:newcollections,
+      })
+    }
+  }catch(err){
+    console.error("Error"+err)
+    res.json({
+      success:false,
+      meassage:"Something wrong please try again"
+    })
+  }
+
+
 })
 
 
