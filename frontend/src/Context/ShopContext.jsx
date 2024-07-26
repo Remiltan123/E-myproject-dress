@@ -22,7 +22,7 @@ const ShopContextProvider = (props) => {
         const response = await fetch("http://localhost:4000/allproduct", {
           method: "GET",
           headers: {
-            "ContentType": "application/json"
+            "Content-Type": "application/json"
           }
         });
   
