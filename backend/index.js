@@ -145,7 +145,7 @@ const Users = mongoose.model("Users",{
   password:{
     type:String
   },
-  cartdata:{
+  cartData:{
     type:Object
   },
   date:{
@@ -230,6 +230,44 @@ app.get("/NewCollection", async(req,res)=>{
 
 
 })
+
+
+const feachtoken = (req, res, next) => {
+    const token = req.headers['auth-token'];
+    if (!token) {
+        return res.json({ success: false, message: "Please authenticate using a valid token" });
+    }
+    try {
+        const decoded = jwt.verify(token, 'secret_ecom');
+        req.user = decoded.user;
+        next();
+    } catch (err) {
+        res.json({ success: false, message: "Invalid token" });
+    }
+}
+
+// Creating endpoint for adding to cart
+app.post('/Addcard-backend', feachtoken, async (req, res) => {
+    const itemId = req.body.itemId;
+
+    try {
+        const finduser = await Users.findById(req.user.id);
+        if (!finduser) {
+            return res.json({ success: false, message: "User not found" });
+        }
+
+        finduser.cartData[itemId] = (finduser.cartData[itemId] || 0) + 1;
+        const updateuser = await Users.findByIdAndUpdate(req.user.id, { cartData: finduser.cartData });
+
+        if (!updateuser) {
+            return res.json({ success: false, message: "An error occurred while updating" });
+        } else {
+            return res.json({ success: true, message: "Added to cart" });
+        }
+    } catch (error) {
+        return res.json({ success: false, message: "An error occurred" });
+    }
+});
 
 
 // API creation
