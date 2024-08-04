@@ -270,6 +270,33 @@ app.post('/Addcard-backend', feachtoken, async (req, res) => {
 });
 
 
+//removecart-backend
+app.post('/removecart-backend', feachtoken, async (req, res) => {
+  const itemId = req.body.itemId;
+
+  try {
+      const finduser = await Users.findById(req.user.id);
+      if (!finduser) {
+          return res.json({ success: false, message: "User not found" });
+      }
+
+      if(finduser.cartData[itemId]>0)
+
+      finduser.cartData[itemId] = (finduser.cartData[itemId] || 0) - 1;
+      const updateuser = await Users.findByIdAndUpdate(req.user.id, { cartData: finduser.cartData });
+
+      if (!updateuser) {
+          return res.json({ success: false, message: "An error occurred while updating" });
+      } else {
+          return res.json({ success: true, message: "Added to cart" });
+      }
+  } catch (error) {
+      return res.json({ success: false, message: "An error occurred" });
+  }
+});
+
+
+
 // API creation
 app.listen(port, (error) => {
   if (!error) {

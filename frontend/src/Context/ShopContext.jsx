@@ -64,8 +64,24 @@ const ShopContextProvider = (props) => {
   };
   console.log(localStorage.getItem('auth-token'))
 
-  const Removecart = (itemId) => {
+  const Removecart = async (itemId) => {
     setCart((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    if(localStorage.getItem('auth-token')){
+      const response = await fetch('http://localhost:4000/removecart-backend',{
+        method:'POST',
+        headers:{
+          'auth-token':`${localStorage.getItem('auth-token')}`,
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({'itemId':itemId})
+      })
+      const data = response.json();
+      if(!data.success){
+        console.log(data.meassage)
+      }else{
+        console.log(data.meassage)
+      }
+    }
   };
 
   const TotalAmount = ()=>{
