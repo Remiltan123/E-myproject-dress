@@ -295,6 +295,19 @@ app.post('/removecart-backend', feachtoken, async (req, res) => {
   }
 });
 
+// fetch the cart detials 
+app.post('/Feach-Card', feachtoken, async(req,res)=>{
+  
+  const finduser = await Users.findById(req.user.id)
+  if (!finduser) {
+    return res.json({ success: false, message: "User not found" });
+  }
+  else {
+    return res.json({ success: true, Data: finduser.cartData});
+  }
+  
+})
+
 
 
 // API creation

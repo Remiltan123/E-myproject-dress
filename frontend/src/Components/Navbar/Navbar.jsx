@@ -1,15 +1,30 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Navbar.css"
 
 import logo from "../Assets/logo.png"
 import cartlogo from "../Assets/cart_icon.png"
 import { Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
+import { useNavigate } from 'react-router-dom'
 
 export const Navbar = () => {
 
+  
   const[menu,setMenu]=useState("Shop")
   const {TotalCartIems} = useContext(ShopContext)
+  const [log,Setlog]=useState("Login")
+
+  useEffect(()=>{
+    if(localStorage.getItem('auth-token')){
+      Setlog("Logout")
+    }
+  },[log])
+ 
+
+  const logout = ()=>{
+    localStorage.removeItem('auth-token')
+    Setlog("Login")
+  }
 
   return (
    <>
@@ -27,9 +42,14 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className='end-anv'>
-        <Link to="/login"> <button >Login</button> </Link>
+      
+        {log === "Login" ?
+        <Link to="/login" ><button>Login</button></Link> 
+        :<Link to="/" onClick={logout}><button>Logout</button></Link> }
+
         <Link to="/cart"> <img src={cartlogo} alt="" className='image'/> </Link>
-        <div className='counter'>{TotalCartIems()}</div>
+        
+       <div className='counter'>{TotalCartIems()}</div>
       </div>
       
     </div>

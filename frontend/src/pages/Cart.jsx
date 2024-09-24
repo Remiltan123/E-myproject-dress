@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import "./CSS/cart.css"
 import remove_icon from "../Components/Assets/cart_cross_icon.png"
 import { ShopCatelog } from './ShopCatelog'
@@ -6,7 +6,8 @@ import { ShopContext } from '../Context/ShopContext'
 
 export const Cart = () => {
 
-  const{all_product, cartItems, Removecart,TotalAmount,TotalCartIems}=useContext(ShopContext)
+  const{all_product, cartItems, Removecart,TotalAmount,TotalCartIems}=useContext(ShopContext); 
+
 
   return (
     <>
