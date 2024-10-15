@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const { type } = require("os");
-const port = 4000;
+const port = process.env.port || 4000;
 const app = express();
 
 // Middleware
